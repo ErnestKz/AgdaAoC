@@ -13,7 +13,7 @@ open import Data.Nat
 -- open import Prelude.Nat
 
 input1 : String
-input1 = file-contents "../inputs/1.1"
+input1 = file-contents "../inputs/1_1"
 
 i : List String
 i = lines input1
