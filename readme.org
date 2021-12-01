@@ -1,3 +1,5 @@
 Participating in the Advent of Code in Agda as a way to get familiar with Agda.
 
 https://adventofcode.com/
+
+(warning: setup.sh will overwrite your ~/.agda/executables file)
