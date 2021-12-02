@@ -4,21 +4,22 @@ module Day1 where
 
 open import Static
 
-open import Data.String
-open import Data.List
-open import Data.Nat
--- open import Prelude.String
--- open import Prelude.List
--- open import Prelude.Maybe
--- open import Prelude.Nat
+open import Data.String using (String; lines)
+open import Data.List using (List; _∷_; [])
+open import Prelude.Nat
+open import Prelude.Int
+open import Prelude.Bool
+open import Prelude.Ord
 
-input1 : String
-input1 = file-contents "../inputs/1_1"
+input : List String
+input = lines (file-contents "../inputs/1_1")
 
-i : List String
-i = lines input1
-
--- o : List Int -> Int
--- o i = snd (foldl (λ (prev, count), current → if (current > prev) then (current, count+1) else (prev, count)) (0, 0))
-
-
+sol : List Nat -> Nat
+sol [] = 0
+sol (x ∷ []) = 0
+sol (x1 ∷ (x2 ∷ [])) with (x1 <? x2)
+... | true =  1
+... | false =  0
+sol (x1 ∷ (x2 ∷ xs)) with (x1 <? x2)
+... | true  = 1 +N (sol (x2 ∷ xs))
+... | false = 0 +N (sol (x2 ∷ xs))
